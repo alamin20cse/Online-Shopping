@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   }
 ]);
 // resolve after confilic
-
+// re solve
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    <RouterProvider router={router} />
