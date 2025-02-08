@@ -17,6 +17,7 @@ const router = createBrowserRouter([
     element:<SignUp></SignUp>
   }
 ]);
+// resolve after confilic
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
