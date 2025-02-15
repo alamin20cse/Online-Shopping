@@ -59,6 +59,7 @@ const SignUp = () => {
           </label>
           <input {...register("email")} type="email" placeholder="email" className="input input-bordered" required />
         </div>
+        {/* district and upzila will be added here with dopwon  */}
 
         <div className="form-control">
           <label className="label">
