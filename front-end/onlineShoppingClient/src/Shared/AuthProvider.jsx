@@ -15,8 +15,6 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth,email,password);
     }
 
-    
-
 
     // update profile
 
@@ -60,10 +58,7 @@ const AuthProvider = ({children}) => {
 
 
 
-
-
-
-
+// Auth information
 
     const authInfo={
         user,
