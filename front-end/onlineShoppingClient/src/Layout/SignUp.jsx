@@ -67,7 +67,7 @@ const SignUp = () => {
     } = useForm();
 
     const handleRegister = async (data) => {
-        const { name, email, photo, password, confirmpassword, bloodgroup, districtID, upazilaID } = data;
+        const { name, email, photo, password, confirmpassword, districtID, upazilaID } = data;
 
         // Check if all fields are filled
         // if (!name || !email || !photo || !bloodgroup || !districtID || !upazilaID) {
@@ -175,7 +175,7 @@ const SignUp = () => {
     return (
         <div className="flex flex-col lg:flex-row-reverse">
             
-       <title>Blood Donation Application | Signup</title>
+       <title>Online shopping login</title>
   
             <div className="w-full lg:w-1/2 flex items-center justify-center bg-base-200">
                 {/* <Lottie animationData={ani1} /> */}
