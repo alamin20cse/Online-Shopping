@@ -118,9 +118,7 @@ const SignUp = () => {
             name,
             email,
             photo: photoURL,
-            password,
-            confirmpassword,
-            bloodgroup,
+
             districtName: selectedDistrict?.name || "Unknown",
             districtNameBan: selectedDistrict?.bn_name || "Unknown",
             upazilaName: selectedUpazila?.name || "Unknown",
