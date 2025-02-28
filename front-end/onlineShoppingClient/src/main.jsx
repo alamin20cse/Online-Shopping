@@ -11,6 +11,26 @@ import AuthProvider from './Shared/AuthProvider.jsx';
 import HomeMain from './Layout/HomeMain.jsx';
 import Login from './Layout/Login.jsx';
 import Home from './Layout/Home.jsx';
+
+
+
+import {
+  QueryClient,
+  QueryClientProvider,
+ 
+} from '@tanstack/react-query'
+import ShowProduct from './Layout/ShowProduct.jsx';
+
+
+
+
+
+
+
+
+
+
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/allproduct',
+        element:<ShowProduct></ShowProduct>
       }
 
     ]
@@ -39,7 +63,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <AuthProvider>
+  <QueryClientProvider client={queryClient}>
   <RouterProvider router={router} />
+  </QueryClientProvider>
   </AuthProvider>
   </StrictMode>,
 )
+
+
+ 
