@@ -26,7 +26,6 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
     const userCollection=client.db('OnlineShoppingSLAB').collection('user');
-    const productCollection=client.db('OnlineShoppingSLAB').collection('products');
     
 
 
@@ -41,20 +40,9 @@ async function run() {
       // console.log(newUser);
       const result=await userCollection.insertOne(newUser);
       res.send(result);
-    
+
+      
   })
-
-
-
-     // bondhon
-  // get all campains
-app.get('/allproducts',async(req,res)=>{
-  const cursor=productCollection.find();
-  const result=await cursor.toArray();
-  res.send(result);
-
-
-})
 
 
 
