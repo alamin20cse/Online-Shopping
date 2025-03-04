@@ -20,6 +20,7 @@ import {
  
 } from '@tanstack/react-query'
 import ShowProduct from './Layout/ShowProduct.jsx';
+import AddProduct from './Layout/AddProduct.jsx';
 
 
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:'/allproduct',
         element:<ShowProduct></ShowProduct>
+      },
+      {
+        path:'/addproduct',
+        element:<AddProduct></AddProduct>
       }
 
     ]
