@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContex } from '../Shared/AuthProvider';
+import useProduct from '../Shared/useProduct';
 
 const Home = () => {
     const {user, logOut}=useContext(AuthContex);
-    console.log(user)
+    const [allproducts, loading, refetch]=useProduct();
+    
+    // console.log(user)
+    console.log(allproducts);
     return (
         <div>
             <h1>home</h1>
