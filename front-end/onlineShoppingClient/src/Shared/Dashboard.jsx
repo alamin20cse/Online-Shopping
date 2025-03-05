@@ -67,10 +67,10 @@ const Dashboard = () => {
                 </li>
                 <li>
                     <NavLink 
-                        to="/dashboard/addnewcampaign" 
+                        to="/dashboard/addproduct" 
                         className={({ isActive }) => isActive ? "text-white bg-blue-500" : "hover:text-white"}
                     >
-                       <MdAddToPhotos /> Add New Campaign
+                       <MdAddToPhotos /> Add New Product
                     </NavLink>
                 </li>
                 <li>
