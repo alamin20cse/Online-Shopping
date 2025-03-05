@@ -22,6 +22,8 @@ import {
 import ShowProduct from './Layout/ShowProduct.jsx';
 import AddProduct from './Layout/AddProduct.jsx';
 import Payment from './Layout/Payment.jsx';
+import PaymentSuccessed from './Layout/PaymentSuccessed.jsx';
+import PaymentFail from './Layout/PaymentFail.jsx';
 
 
 
@@ -62,6 +64,15 @@ const router = createBrowserRouter([
       {
         path:'/payment/:id',
         element:<Payment></Payment>
+      },
+      {
+        path:'/payment/success/:tranid',
+        element:<PaymentSuccessed></PaymentSuccessed>
+      },
+      {
+        path:'/payment/fail/:tranid',
+      
+        element:<PaymentFail></PaymentFail>
       }
 
     ]
