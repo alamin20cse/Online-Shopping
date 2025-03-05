@@ -17,7 +17,7 @@ const SignUp = () => {
     console.log(import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET)
     console.log( import.meta.env.VITE_CLOUDINARY_CLOUD_NAME)
 
-  
+
 
     // Fetch districts on component mount
     useEffect(() => {
@@ -57,11 +57,127 @@ const SignUp = () => {
         });
     };
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        setValue,
+        getValues,
+        watch
+    } = useForm();
+
+    const handleRegister = async (data) => {
+        const { name, email, photo, password, confirmpassword, districtID, upazilaID } = data;
+
+        // Check if all fields are filled
+        // if (!name || !email || !photo || !bloodgroup || !districtID || !upazilaID) {
+        //     handleError("Incomplete Form", "Please fill in all the required fields.");
+        //     return;
+        // }
+
+        // Validate Password
+        if (!passwordRegex.test(password)) {
+            handleError("Invalid Password", "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.");
+            return;
+        }
+
+        // Check if passwords match
+        if (password !== confirmpassword) {
+            handleError("Password Mismatch", "Passwords do not match.");
+            return;
+        }
+
+        const photoFile = watch("photo")?.[0];
+        let photoURL = photo;
+
+        // Upload image if a new file is selected
+        if (photoFile) {
+            try {
+                const data = new FormData();
+                data.append("file", photoFile);
+                data.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+                data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+
+                const res = await fetch(
+                    `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+                    { method: "POST", body: data }
+                );
+                const uploadImageURL = await res.json();
+                photoURL = uploadImageURL.url;
+            } catch (error) {
+                Swal.fire("Error", "Image upload failed.", "error");
+                return;
+            }
+        }
+
+        // Find the selected district and upazila
+        const selectedDistrict = districts.find((d) => d.id === districtID);
+        const selectedUpazila = upazilas.find((u) => u.id === upazilaID);
+
+        const userData = {
+            name,
+            email,
+            photo: photoURL,
+            password,
+            confirmpassword,
+           
+
+            districtName: selectedDistrict?.name || "Unknown",
+            districtNameBan: selectedDistrict?.bn_name || "Unknown",
+            upazilaName: selectedUpazila?.name || "Unknown",
+            upazilaNameBan: selectedUpazila?.bn_name || "Unknown",
+            districtID,
+            upazilaID,
+            status: 'active',
+            role: 'user',
+        };
+
+        console.log("User Data after :", userData);
+
+        // Create User
+        createNewUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                updateUserProfile({ displayName: name, photoURL: photoURL })
+                    .then(() => {
+                        // Send data to the server
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json',
+                            },
+                            body: JSON.stringify(userData),
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                // console.log(data);
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Registration Successful",
+                                    text: "Welcome to the platform!",
+                                });
+                                navigate("/");
+                            })
+                            .catch((error) => {
+                                handleError("Error", "Failed to send user data.");
+                            });
+                    })
+
+                    .catch((error) => {
+                        handleError("Profile Update Failed", error.message);
+                    });
+            })
+            .catch((error) => {
+                handleError("Registration Failed", error.message);
+            });
+    };
+
     return (
         <div className="flex flex-col lg:flex-row-reverse">
-            
+
        <title>Online shopping login</title>
-  
+
             <div className="w-full lg:w-1/2 flex items-center justify-center bg-base-200">
                 {/* <Lottie animationData={ani1} /> */}
             </div>
@@ -104,7 +220,7 @@ const SignUp = () => {
                             />
                             {errors.photo && <span className="text-red-500 text-sm">{errors.photo.message}</span>}
                         </div>
-                       
+
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text">District</span>
@@ -141,7 +257,7 @@ const SignUp = () => {
                             </select>
                             {errors.upazilaID && <span className="text-red-500 text-sm">{errors.upazilaID.message}</span>}
                         </div>
-                        
+
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text">Password</span>
