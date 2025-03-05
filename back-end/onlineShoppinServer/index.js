@@ -134,7 +134,13 @@ app.post('/payments',async(req,res)=>{
   res.send(result);
 
 })
-
+// get all payment information for admin only
+// get all campains
+app.get('/payments',async(req,res)=>{
+  const cursor=paymentCollection.find();
+  const result=await cursor.toArray();
+  res.send(result);
+})
 
 
 
