@@ -75,7 +75,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                     <NavLink 
-                        to="/dashboard/allpaymentinfo" 
+                        to="/dashboard/allpayments" 
                         className={({ isActive }) => isActive ? "text-white bg-blue-500" : "hover:text-white"}
                     >
                        <MdPaid/> All Payment Informatin
