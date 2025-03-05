@@ -45,6 +45,19 @@ async function run() {
   })
 
 
+  // afrin
+  // addproduct
+  
+  app.post('/products',async(req,res)=>{
+    const newproduct=req.body;
+    console.log(newproduct);
+    const result=await productCollection.insertOne(newproduct);
+    res.send(result);
+    
+})
+
+
+
   // bondhon
   // get all campains
 app.get('/allproducts',async(req,res)=>{
