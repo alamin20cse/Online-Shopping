@@ -53,7 +53,14 @@ async function run() {
       
   })
 
+// get user logged
+app.get('/users',async(req,res)=>{
+  const email=req.query.email;
+  const query={email:email};
 
+  const result=await userCollection.find(query).toArray();
+  res.send(result);
+})
   // afrin
   // addproduct
   
