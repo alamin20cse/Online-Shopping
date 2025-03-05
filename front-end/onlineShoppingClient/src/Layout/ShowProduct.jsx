@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ShowProduct = () => {
     const [allproducts, loading, refetch] = useProduct();
-
+    //if product is null 
     if (loading) {
         return <p>Loading products...</p>;
     }
