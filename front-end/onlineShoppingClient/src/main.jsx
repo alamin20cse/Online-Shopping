@@ -21,6 +21,7 @@ import {
 } from '@tanstack/react-query'
 import ShowProduct from './Layout/ShowProduct.jsx';
 import AddProduct from './Layout/AddProduct.jsx';
+import Payment from './Layout/Payment.jsx';
 
 
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path:'/addproduct',
         element:<AddProduct></AddProduct>
+      },
+      {
+        path:'/payment/:id',
+        element:<Payment></Payment>
       }
 
     ]

@@ -1,5 +1,6 @@
 import React from 'react';
 import useProduct from '../Shared/useProduct';
+import { Link } from 'react-router-dom';
 
 
 const ShowProduct = () => {
@@ -11,6 +12,7 @@ const ShowProduct = () => {
 
     return (
         <div className="p-4">
+          
             <h2 className="text-2xl font-bold mb-4">All Products</h2>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
                 {allproducts.map((product) => (
@@ -32,7 +34,7 @@ const ShowProduct = () => {
                         <p className="text-sm text-gray-500">
                             <strong>Posted on:</strong> {new Date(product.date).toLocaleDateString()}
                         </p>
-                        <button className='btn btn-primary'>By now</button>
+                       <Link to={`/payment/${product._id}`}> <button className='btn btn-primary'>By now</button></Link>
                     </div>
                 ))}
             </div>
