@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
 
 const Footer = () => {
+    // this is footer 
     return (
+
         <footer className="bg-gray-900 text-gray-300 py-10 mt-10">
             <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 
