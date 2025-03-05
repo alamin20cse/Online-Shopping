@@ -63,10 +63,7 @@ const router = createBrowserRouter([
         path:'/allproduct',
         element:<ShowProduct></ShowProduct>
       },
-      {
-        path:'/addproduct',
-        element:<AddProduct></AddProduct>
-      },
+     
       {
         path:'/payment/:id',
         element:<Payment></Payment>
@@ -104,6 +101,11 @@ const router = createBrowserRouter([
   {
     path:"/dashboard/allusers",
     element:<AllUsers></AllUsers>
+  },
+
+  {
+    path:"/dashboard/addproduct",
+    element:<AddProduct></AddProduct>
   }
 
   ]
