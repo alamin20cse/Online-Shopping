@@ -2,13 +2,7 @@ import React from 'react';
 import useUsers from '../Hooks/useUsers';
 
 const Profile = () => {
-    const [users, loading, refetch] = useUsers();
-    
-    if (loading) {
-        return <div className="flex justify-center items-center h-screen">Loading...</div>;
-    }
-    console.log(users);
-    
+    const [users, loading, refetch]=useUsers()
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
             {users && users.length > 0 && users.map(user => (
