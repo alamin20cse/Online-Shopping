@@ -28,6 +28,7 @@ import Dashboard from './Shared/Dashboard.jsx';
 import DashboardMain from './Shared/DashboardMain.jsx';
 import Profile from './Layout/Profile.jsx';
 import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
+import AllUsers from './Layout/AllUsers.jsx';
 
 
 
@@ -98,7 +99,13 @@ const router = createBrowserRouter([
     {
       path:"/dashboard/allpayments",
       element:<AllPaymentInfo></AllPaymentInfo>
-    }
+    },
+
+  {
+    path:"/dashboard/allusers",
+    element:<AllUsers></AllUsers>
+  }
+
   ]
 }
 ]);
