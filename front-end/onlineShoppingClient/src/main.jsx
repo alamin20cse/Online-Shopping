@@ -26,6 +26,7 @@ import PaymentSuccessed from './Layout/PaymentSuccessed.jsx';
 import PaymentFail from './Layout/PaymentFail.jsx';
 import Dashboard from './Shared/Dashboard.jsx';
 import DashboardMain from './Shared/DashboardMain.jsx';
+import Profile from './Layout/Profile.jsx';
 
 
 
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
     {
       path:"/dashboard",
       element:<DashboardMain></DashboardMain>
+    },
+    {
+      path:"/dashboard/profile",
+      element:<Profile></Profile>
     }
   ]
 }
