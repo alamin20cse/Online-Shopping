@@ -1,7 +1,9 @@
 const express=require('express');
 const cors=require('cors');
 require('dotenv').config();
+const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+
 const app=express();
 const port =process.env.PORT || 5000;
 
@@ -27,6 +29,7 @@ async function run() {
     // await client.connect();
     const userCollection=client.db('OnlineShoppingSLAB').collection('user');
     const productCollection=client.db('OnlineShoppingSLAB').collection('products');
+    const paymentCollection=client.db('OnlineShoppingSLAB').collection('payments');
 
 
 
@@ -67,6 +70,87 @@ app.get('/allproducts',async(req,res)=>{
 
 
 })
+
+
+ // for  specific Product
+ app.get('/allproduct/:id', async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: new ObjectId(id) };
+  const result = await productCollection.findOne(query);
+  res.send(result);
+});
+
+
+
+
+
+
+
+
+
+// Payment intent 
+app.post('/create-payment-intent', async (req, res) => {
+  try {
+    const { price } = req.body;
+
+    if (!price || isNaN(price) || price <= 0) {
+      return res.status(400).json({ error: "Invalid price value" });
+    }
+
+    const amount = parseInt(price * 100);
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: 'usd',
+      payment_method_types: ['card']
+    });
+
+
+
+    res.send({ clientSecret: paymentIntent.client_secret });
+  } catch (error) {
+    console.error("Payment Intent Error:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// payment information
+app.post('/payments',async(req,res)=>{
+  const payment=req.body;
+  const result=await paymentCollection.insertOne(payment);
+  res.send(result);
+
+})
+
+// get all payment information for admin only
+// get all campains
+app.get('/payments',async(req,res)=>{
+  const cursor=paymentCollection.find();
+  const result=await cursor.toArray();
+  res.send(result);
+})
+
+
+  // get user logged payment
+  app.get('/mypayments',async(req,res)=>{
+    const email=req.query.email;
+    const query={email:email};
+
+    const result=await paymentCollection.find(query).toArray();
+    res.send(result);
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
