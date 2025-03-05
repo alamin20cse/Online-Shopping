@@ -2,6 +2,7 @@ const express=require('express');
 const cors=require('cors');
 require('dotenv').config();
 const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
+const SSLCommerzPayment = require('sslcommerz-lts')
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 const app=express();
@@ -22,6 +23,11 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+
+const store_id = process.env.STOREID;
+const store_passwd = process.env.STOREPASS;
+const is_live = false //true for live, false for sandbox
 
 async function run() {
   try {
@@ -122,25 +128,129 @@ app.post('/payments',async(req,res)=>{
 
 })
 
-// get all payment information for admin only
-// get all campains
-app.get('/payments',async(req,res)=>{
-  const cursor=paymentCollection.find();
-  const result=await cursor.toArray();
-  res.send(result);
-})
 
 
-  // get user logged payment
-  app.get('/mypayments',async(req,res)=>{
-    const email=req.query.email;
-    const query={email:email};
-
-    const result=await paymentCollection.find(query).toArray();
-    res.send(result);
-})
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ssLC
+app.post('/order', async (req, res) => {
+  // Generate unique transaction ID
+  const transactionId = new ObjectId().toString();
+
+  // Extract payment details from request body
+  const { email, name, amount,  productName,BrandName, productId, thumbnail } = req.body;
+  const payDetails=req.body;
+  console.log(payDetails)
+
+  const data = {
+    total_amount: parseFloat(amount), // Ensure amount is a number
+    currency: "BDT",
+    tran_id: transactionId, // Unique transaction ID
+    success_url: `http://localhost:5000/payment/success/${transactionId}`,
+    fail_url: `http://localhost:5000/payment/fail/${transactionId}`,
+    cancel_url: "http://localhost:3030/cancel",
+    ipn_url: "http://localhost:3030/ipn",
+    shipping_method: "Courier",
+    product_name:productName  || "Donation",
+    product_category: "Donation",
+    product_profile: "general",
+    cus_name: name || "Anonymous",
+    cus_email: email || "unknown@example.com",
+    cus_add1: "Dhaka",
+    cus_add2: "Dhaka",
+    cus_city: "Dhaka",
+    cus_state: "Dhaka",
+    cus_postcode: "1000",
+    cus_country: "Bangladesh",
+    cus_phone: "01711111111",
+    cus_fax: "01711111111",
+    ship_name: name || "Anonymous",
+    ship_add1: "Dhaka",
+    ship_add2: "Dhaka",
+    ship_city: "Dhaka",
+    ship_state: "Dhaka",
+    ship_postcode: "1000",
+    ship_country: "Bangladesh",
+  };
+
+
+  console.log(data);
+
+  const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
+  sslcz.init(data).then((apiResponse) => {
+    // Redirect the user to payment gateway
+    let GatewayPageURL = apiResponse.GatewayPageURL;
+    res.send({ url: GatewayPageURL });
+const finalpay= {
+  email, name, amount, BrandName, productId, thumbnail,
+  paidStatus:false,
+  TranstionID: transactionId,
+   date: new Date().toISOString(),  
+
+}
+const result=paymentCollection.insertOne(finalpay);
+
+
+    console.log('Redirecting to: ', GatewayPageURL);
+  });
+});
+
+
+
+// ✅ Fix: Move this route outside of '/order' and ensure correct path
+app.post('/payment/success/:tranId', async (req, res) => {
+  console.log("Transaction ID:", req.params.tranId);
+
+  const result=await paymentCollection.updateOne({TranstionID:req.params.tranId},{$set:{
+    paidStatus:true,
+  }
+
+
+  })
+  if(result.modifiedCount>0)
+  {
+    res.redirect(`http://localhost:5173/payment/success/${req.params.tranId}`)
+
+  }
+
+
+});
+
+
+
+app.post('/payment/fail/:tranId', async (req, res) => {
+  console.log("Transaction ID:", req.params.tranId);
+
+  const result=await paymentCollection.deleteOne({TranstionID:req.params.tranId})
+  
+
+ if(result.deletedCount>0)
+  {
+    res.redirect(`http://localhost:5173/payment/fail/${req.params.tranId}`)
+
+  }
+
+
+});
+
+
+
+
+ 
 
 
 
