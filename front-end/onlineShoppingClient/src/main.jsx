@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,7 +24,7 @@ import AddProduct from './Layout/AddProduct.jsx';
 import Payment from './Layout/Payment.jsx';
 import PaymentSuccessed from './Layout/PaymentSuccessed.jsx';
 import PaymentFail from './Layout/PaymentFail.jsx';
-import AllUsers from './Layout/AllUsers.jsx';
+
 
 
 
