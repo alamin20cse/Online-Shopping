@@ -27,6 +27,7 @@ import PaymentFail from './Layout/PaymentFail.jsx';
 import Dashboard from './Shared/Dashboard.jsx';
 import DashboardMain from './Shared/DashboardMain.jsx';
 import Profile from './Layout/Profile.jsx';
+import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
 
 
 
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
     {
       path:"/dashboard/profile",
       element:<Profile></Profile>
+    },
+    {
+      path:"/dashboard/allpayments",
+      element:<AllPaymentInfo></AllPaymentInfo>
     }
   ]
 }
