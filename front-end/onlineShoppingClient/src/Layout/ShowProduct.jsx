@@ -32,7 +32,7 @@ const ShowProduct = () => {
                         <p className="text-sm text-gray-500">
                             <strong>Posted on:</strong> {new Date(product.date).toLocaleDateString()}
                         </p>
-                        <button className='btn btn-primary'>Add to cart</button>
+                        <button className='btn btn-primary'>By now</button>
                     </div>
                 ))}
             </div>
