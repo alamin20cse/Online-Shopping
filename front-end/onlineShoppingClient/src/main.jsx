@@ -24,6 +24,8 @@ import AddProduct from './Layout/AddProduct.jsx';
 import Payment from './Layout/Payment.jsx';
 import PaymentSuccessed from './Layout/PaymentSuccessed.jsx';
 import PaymentFail from './Layout/PaymentFail.jsx';
+import Dashboard from './Shared/Dashboard.jsx';
+import DashboardMain from './Shared/DashboardMain.jsx';
 
 
 
@@ -79,7 +81,16 @@ const router = createBrowserRouter([
 
     ]
   },
- 
+{
+  path:"/dashboard",
+  element:<Dashboard></Dashboard>,
+  children:[
+    {
+      path:"/dashboard",
+      element:<DashboardMain></DashboardMain>
+    }
+  ]
+}
 ]);
 // resolve after confilic
 // re solve
