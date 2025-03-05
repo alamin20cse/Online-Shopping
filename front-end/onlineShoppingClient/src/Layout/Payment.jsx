@@ -149,7 +149,8 @@ const Payment = () => {
                         <input
                             type="number"
                             name="totalprice"
-                            placeholder="Enter Amount (TK)"
+                           value={Price}
+                           readOnly
                             className="w-full p-2 border rounded-md"
                             required
                         />
