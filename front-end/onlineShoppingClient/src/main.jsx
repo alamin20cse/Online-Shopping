@@ -30,6 +30,7 @@ import Profile from './Layout/Profile.jsx';
 import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
 import AllUsers from './Layout/AllUsers.jsx';
 import AdminRoute from './Route/AdminRoute.jsx';
+import PrivateRoute from './Route/PrivateRoute.jsx';
 
 
 
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allproduct',
-        element:<ShowProduct></ShowProduct>
+        element:<PrivateRoute><ShowProduct></ShowProduct></PrivateRoute>
       },
      
       {
