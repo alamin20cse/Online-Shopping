@@ -209,7 +209,7 @@ app.post('/order', async (req, res) => {
     let GatewayPageURL = apiResponse.GatewayPageURL;
     res.send({ url: GatewayPageURL });
 const finalpay= {
-  email, name, amount, BrandName, productId, thumbnail,
+  email, name, amount, BrandName, productId, thumbnail,productName,
   paidStatus:false,
   TranstionID: transactionId,
    date: new Date().toISOString(),  
