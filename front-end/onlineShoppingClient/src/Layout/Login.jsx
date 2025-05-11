@@ -103,7 +103,7 @@ const Login = () => {
          </div>
        </form>
        
-       <p>Are you New? <Link className='text-red-400' to='/singup'>Regiester</Link> </p>
+       <p>Are you New? <Link className='text-red-400' to='/signup'>Regiester</Link> </p>
  
      </div>
    </div>
