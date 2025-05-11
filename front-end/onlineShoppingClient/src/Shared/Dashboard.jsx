@@ -38,14 +38,14 @@ const Dashboard = () => {
                     <FaUser /> Profile
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink 
                     to="/dashboard/order" 
                     className={({ isActive }) => isActive ? "text-white bg-blue-500" : "hover:text-white"}
                 >
                    <FcDonate /> My Order
                 </NavLink>
-            </li>
+            </li> */}
             
          
             
