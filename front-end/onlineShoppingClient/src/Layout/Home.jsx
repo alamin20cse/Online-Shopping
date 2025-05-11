@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContex } from '../Shared/AuthProvider';
 import useProduct from '../Shared/useProduct';
+import ShowProduct from './ShowProduct';
 
 const Home = () => {
     const {user, logOut}=useContext(AuthContex);
@@ -10,13 +11,7 @@ const Home = () => {
     console.log(allproducts);
     return (
         <div>
-            <h1>home</h1>
-            <h1>Name of user :{user?.displayName}</h1>
-           <div>
-            <img src={user?.photoURL} alt="" />
-           </div>
-            
-            <button onClick={logOut} className='btn bg-red-400'>Logout</button>
+            <ShowProduct></ShowProduct>
             
         </div>
     );
