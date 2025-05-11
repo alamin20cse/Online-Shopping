@@ -29,6 +29,7 @@ import DashboardMain from './Shared/DashboardMain.jsx';
 import Profile from './Layout/Profile.jsx';
 import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
 import AllUsers from './Layout/AllUsers.jsx';
+import AdminRoute from './Route/AdminRoute.jsx';
 
 
 
@@ -105,7 +106,7 @@ const router = createBrowserRouter([
 
   {
     path:"/dashboard/addproduct",
-    element:<AddProduct></AddProduct>
+    element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
   }
 
   ]
