@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"; // Import useForm
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../Shared/AuthProvider";
+import ani1 from '../Animationfile/SignUpAni.json';
+import Lottie from "lottie-react";
 
 
 
@@ -179,7 +181,8 @@ const SignUp = () => {
        <title>Online shopping login</title>
 
             <div className="w-full lg:w-1/2 flex items-center justify-center bg-base-200">
-                {/* <Lottie animationData={ani1} /> */}
+                <Lottie animationData={ani1} />
+                {/* <h1>alam idfdsfsadf</h1> */}
             </div>
             <div className="w-full lg:w-1/2 flex items-center justify-center bg-base-100">
                 <div className="max-w-sm w-full p-6 shadow-2xl rounded-lg">
