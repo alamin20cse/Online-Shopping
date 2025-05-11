@@ -53,14 +53,7 @@ async function run() {
       
   })
 
-// get user logged
-app.get('/users',async(req,res)=>{
-  const email=req.query.email;
-  const query={email:email};
 
-  const result=await userCollection.find(query).toArray();
-  res.send(result);
-})
   // afrin
   // addproduct
   
@@ -134,13 +127,7 @@ app.post('/payments',async(req,res)=>{
   res.send(result);
 
 })
-// get all payment information for admin only
-// get all campains
-app.get('/payments',async(req,res)=>{
-  const cursor=paymentCollection.find();
-  const result=await cursor.toArray();
-  res.send(result);
-})
+
 
 
 
@@ -209,7 +196,7 @@ app.post('/order', async (req, res) => {
     let GatewayPageURL = apiResponse.GatewayPageURL;
     res.send({ url: GatewayPageURL });
 const finalpay= {
-  email, name, amount, BrandName, productId, thumbnail,
+  email, name, amount, BrandName, productId, thumbnail,productName,
   paidStatus:false,
   TranstionID: transactionId,
    date: new Date().toISOString(),  
@@ -260,43 +247,10 @@ app.post('/payment/fail/:tranId', async (req, res) => {
 
 });
 
-// get all users only for admin
-app.get('/allusers',async(req,res)=>{
-  const cursor=userCollection.find();
-  const result=await cursor.toArray();
-  res.send(result);
-})
 
 
 
-
-app.patch("/allusers/:id", async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
-
-  try {
-      const result = await userCollection.updateOne({ _id: new ObjectId(id) }, { $set: { status } });
-      res.json({ success: true, message: "Status updated", result });
-  } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to update status", error });
-  }
-});
-
-
-app.patch("/allusers/:id/role", async (req, res) => {
-const { id } = req.params;
-const { role } = req.body;
-
-try {
-    const result = await userCollection.updateOne({ _id: new ObjectId(id) }, { $set: { role } });
-    res.json({ success: true, message: "Role updated", result });
-} catch (error) {
-    res.status(500).json({ success: false, message: "Failed to update role", error });
-}
-});
-
-
-
+ 
 
 
 
@@ -318,6 +272,8 @@ try {
   }
 }
 run().catch(console.dir);
+
+
 
 
 
