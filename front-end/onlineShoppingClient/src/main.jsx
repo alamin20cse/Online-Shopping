@@ -30,8 +30,6 @@ import Profile from './Layout/Profile.jsx';
 import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
 import AllUsers from './Layout/AllUsers.jsx';
 import AdminRoute from './Route/AdminRoute.jsx';
-import PrivateRoute from './Route/PrivateRoute.jsx';
-import { AiFillProduct } from 'react-icons/ai';
 
 
 
@@ -64,21 +62,21 @@ const router = createBrowserRouter([
       },
       {
         path:'/allproduct',
-        element:<PrivateRoute><AiFillProduct></AiFillProduct></PrivateRoute>
+        element:<ShowProduct></ShowProduct>
       },
      
       {
         path:'/payment/:id',
-        element:<PrivateRoute><Payment></Payment></PrivateRoute>
+        element:<Payment></Payment>
       },
       {
         path:'/payment/success/:tranid',
-        element:<PrivateRoute><PaymentSuccessed></PaymentSuccessed></PrivateRoute>
+        element:<PaymentSuccessed></PaymentSuccessed>
       },
       {
         path:'/payment/fail/:tranid',
       
-        element:<PrivateRoute><PaymentFail></PaymentFail></PrivateRoute>
+        element:<PaymentFail></PaymentFail>
       },
      
 
@@ -90,25 +88,25 @@ const router = createBrowserRouter([
   children:[
     {
       path:"/dashboard",
-      element:<PrivateRoute><DashboardMain></DashboardMain></PrivateRoute>
+      element:<DashboardMain></DashboardMain>
     },
     {
       path:"/dashboard/profile",
-      element:<PrivateRoute><Profile></Profile></PrivateRoute>
+      element:<Profile></Profile>
     },
     {
       path:"/dashboard/allpayments",
-      element:<PrivateRoute><AllPaymentInfo></AllPaymentInfo></PrivateRoute>
+      element:<AllPaymentInfo></AllPaymentInfo>
     },
 
   {
     path:"/dashboard/allusers",
-    element:<PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+    element:<AllUsers></AllUsers>
   },
 
   {
     path:"/dashboard/addproduct",
-    element: <PrivateRoute><AdminRoute><AddProduct></AddProduct></AdminRoute></PrivateRoute>
+    element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
   }
 
   ]
