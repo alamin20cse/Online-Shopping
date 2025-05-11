@@ -68,16 +68,16 @@ const router = createBrowserRouter([
      
       {
         path:'/payment/:id',
-        element:<Payment></Payment>
+        element:<PrivateRoute><Payment></Payment></PrivateRoute>
       },
       {
         path:'/payment/success/:tranid',
-        element:<PaymentSuccessed></PaymentSuccessed>
+        element:<PrivateRoute><PaymentSuccessed></PaymentSuccessed></PrivateRoute>
       },
       {
         path:'/payment/fail/:tranid',
       
-        element:<PaymentFail></PaymentFail>
+        element:<PrivateRoute><PaymentFail></PaymentFail></PrivateRoute>
       },
      
 
@@ -89,20 +89,20 @@ const router = createBrowserRouter([
   children:[
     {
       path:"/dashboard",
-      element:<DashboardMain></DashboardMain>
+      element:<PrivateRoute><DashboardMain></DashboardMain></PrivateRoute>
     },
     {
       path:"/dashboard/profile",
-      element:<Profile></Profile>
+      element:<PrivateRoute><Profile></Profile></PrivateRoute>
     },
     {
       path:"/dashboard/allpayments",
-      element:<AllPaymentInfo></AllPaymentInfo>
+      element:<AdminRoute><AllPaymentInfo></AllPaymentInfo></AdminRoute>
     },
 
   {
     path:"/dashboard/allusers",
-    element:<AllUsers></AllUsers>
+    element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
   },
 
   {
