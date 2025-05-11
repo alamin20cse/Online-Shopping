@@ -81,14 +81,7 @@ const Dashboard = () => {
                        <MdPaid/> All Payment Informatin
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink 
-                        to="/dashboard/mycampaign" 
-                        className={({ isActive }) => isActive ? "text-white bg-blue-500" : "hover:text-white"}
-                    >
-                       <MdCampaign /> My Campaign
-                    </NavLink>
-                </li>
+              
               
               
               </>
