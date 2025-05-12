@@ -19,7 +19,7 @@ const Payment = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/allproduct/${id}`)
+        fetch(`https://online-shoppin-server.vercel.app/allproduct/${id}`)
             .then((res) => {
                 if (!res.ok) throw new Error("Failed to fetch product details");
                 return res.json();
@@ -73,7 +73,7 @@ const Payment = () => {
         console.log(paymentInfo);
 
         // Send to backend
-        fetch('http://localhost:5000/order', {
+        fetch('https://online-shoppin-server.vercel.app/order', {
             method: 'POST',
             headers: { "content-type": 'application/json' },
             body: JSON.stringify(paymentInfo),

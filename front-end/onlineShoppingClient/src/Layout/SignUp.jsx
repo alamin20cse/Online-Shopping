@@ -144,7 +144,7 @@ const SignUp = () => {
                 updateUserProfile({ displayName: name, photoURL: photoURL })
                     .then(() => {
                         // Send data to the server
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://online-shoppin-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json',
