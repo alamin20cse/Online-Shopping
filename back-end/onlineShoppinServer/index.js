@@ -37,6 +37,7 @@ async function run() {
     const productCollection=client.db('OnlineShoppingSLAB').collection('products');
     const paymentCollection=client.db('OnlineShoppingSLAB').collection('payments');
     const districtsCollection=client.db('OnlineShoppingSLAB').collection('districts');
+    const upzilasCollection=client.db('OnlineShoppingSLAB').collection('upzilas');
 
 
 
@@ -166,6 +167,16 @@ app.post('/payments',async(req,res)=>{
     app.get('/districts',async(req,res)=>{
      
       const  cursor=districtsCollection.find();
+      const result=await cursor.toArray();
+      res.send(result);
+
+    })
+
+
+     // payment data
+    app.get('/upzilas',async(req,res)=>{
+     
+      const  cursor=upzilasCollection.find();
       const result=await cursor.toArray();
       res.send(result);
 
