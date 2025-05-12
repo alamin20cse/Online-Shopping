@@ -14,7 +14,7 @@ const useProduct = () => {
     queryKey: ["allproducts"],
     queryFn: async () => {
       try {
-        const res = await axios.get("http://localhost:5000/allproducts");
+        const res = await axios.get("https://online-shoppin-server.vercel.app/allproducts");
         return res.data; // Return the data if request is successful
       } catch (error) {
         throw error; // Re-throw other errors

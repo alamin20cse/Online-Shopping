@@ -14,7 +14,7 @@ const useAllPaymentInfo = () => {
     queryKey: ["allpayments"],
     queryFn: async () => {
       try {
-        const res = await axios.get("http://localhost:5000/payments");
+        const res = await axios.get("https://online-shoppin-server.vercel.app/payments");
         return res.data; // Return the data if request is successful
       } catch (error) {
         throw error; // Re-throw other errors

@@ -16,7 +16,7 @@ const AllUsers = () => {
     // Function to update user status
     const updateUserStatus = async (userId, newStatus) => {
         try {
-            const response = await fetch(`http://localhost:5000/allusers/${userId}`, {
+            const response = await fetch(`https://online-shoppin-server.vercel.app/allusers/${userId}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),
@@ -33,7 +33,7 @@ const AllUsers = () => {
     // Function to update user role
     const updateUserRole = async (userId, newRole) => {
         try {
-            const response = await fetch(`http://localhost:5000/allusers/${userId}/role`, {
+            const response = await fetch(`https://online-shoppin-server.vercel.app/allusers/${userId}/role`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ role: newRole }),

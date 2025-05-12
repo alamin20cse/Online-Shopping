@@ -34,7 +34,7 @@ const {
       return;
     }
 
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://online-shoppin-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const {
         }
 
 
-        fetch('http://localhost:5000/payments',{
+        fetch('https://online-shoppin-server.vercel.app/payments',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
