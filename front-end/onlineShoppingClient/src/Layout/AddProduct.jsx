@@ -75,7 +75,7 @@ const AddProduct = () => {
       };
       console.log(campaignData);
 
-      const response = await fetch("http://localhost:5000/products", {
+      const response = await fetch("https://online-shoppin-server.vercel.app/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(campaignData),
