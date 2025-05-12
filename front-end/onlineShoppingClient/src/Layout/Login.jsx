@@ -65,7 +65,7 @@ const Login = () => {
         <div className='w-full lg:w-1/2 flex items-center justify-center bg-base-200'>
 
 <Lottie animationData={ani1}></Lottie>
-<h1>ani</h1>
+
 
       </div>
 
