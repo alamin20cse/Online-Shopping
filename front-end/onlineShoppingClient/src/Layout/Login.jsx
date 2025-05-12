@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 import { AuthContex } from '../Shared/AuthProvider';
+import Lottie from "lottie-react";
+import ani1 from '../Animationfile/LoginAni.json'
 
 
 
@@ -62,7 +64,7 @@ const Login = () => {
         {/* dfsdf */}
         <div className='w-full lg:w-1/2 flex items-center justify-center bg-base-200'>
 
-{/* <Lottie animationData={ani1}></Lottie> */}
+<Lottie animationData={ani1}></Lottie>
 <h1>ani</h1>
 
       </div>
