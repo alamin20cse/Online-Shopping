@@ -182,13 +182,13 @@ export const auth = getAuth(app);
 ## 📸 Screenshots
 
 ### Login page
-![Login page](https://i.ibb.co/4RMgtx3Y/image.png)
+![Login page](image.png)
 
 ### Home Page
-![Home Page](https://i.ibb.co/Jw8xrnQF/image.png)
+![Home Page](home.png)
 
 ### Admin Dashboard
-![Admin Dashboard](https://i.ibb.co/B5tPK84k/image.png)
+![Admin Dashboard](admin.png)
 
 
 ## ✅ Testing
