@@ -31,6 +31,7 @@ import AllPaymentInfo from './Layout/AllPaymentInfo.jsx';
 import AllUsers from './Layout/AllUsers.jsx';
 import AdminRoute from './Route/AdminRoute.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
+import Errorpage from './Layout/Errorpage.jsx';
 
 
 
@@ -83,6 +84,12 @@ const router = createBrowserRouter([
 
     ]
   },
+  {
+    path:'*',
+    element:<Errorpage></Errorpage>
+
+  },
+
 {
   path:"/dashboard",
   element:<Dashboard></Dashboard>,
