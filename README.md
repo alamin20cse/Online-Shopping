@@ -1,6 +1,8 @@
 Goal: Online Shopping Site
 
 First step: Requirement Analysis Report added
+            1)user requirements
+            2)system requirements
 
 second step: Design Step: 
               Database design, E-R diagram design and Normalization added
