@@ -8,9 +8,10 @@ second step: Design Step:
             1)Database design
             2)E-R diagram design
             3)Normalization step by step(1NF,2NF,3NF,4NF)
+            4)architecture design
 
-Third step: implementation started and processing
-            1) login page and signed up page designed
-            2) Navbar added
-            3) 
+Third step: implementation 
+fourth step: validation checked
+fifth step: deployment
+
 
