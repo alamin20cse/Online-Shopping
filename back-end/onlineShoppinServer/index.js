@@ -36,6 +36,8 @@ async function run() {
     const userCollection=client.db('OnlineShoppingSLAB').collection('user');
     const productCollection=client.db('OnlineShoppingSLAB').collection('products');
     const paymentCollection=client.db('OnlineShoppingSLAB').collection('payments');
+    const districtsCollection=client.db('OnlineShoppingSLAB').collection('districts');
+    const upzilasCollection=client.db('OnlineShoppingSLAB').collection('upzilas');
 
 
 
@@ -127,6 +129,59 @@ app.post('/payments',async(req,res)=>{
   res.send(result);
 
 })
+
+
+
+ // payment data
+    app.get('/users',async(req,res)=>{
+     
+      const  cursor=userCollection.find();
+      const result=await cursor.toArray();
+      res.send(result);
+
+    })
+
+
+     // payment data
+    app.get('/payments',async(req,res)=>{
+     
+      const  cursor=paymentCollection.find();
+      const result=await cursor.toArray();
+      res.send(result);
+
+    })
+
+
+    
+    // get user logged
+    app.get('/user', async(req,res)=>{
+        const email=req.query.email;
+        const query={email:email};
+
+        const result=await userCollection.find(query).toArray();
+        res.send(result);
+    })
+
+
+     // payment data
+    app.get('/districts',async(req,res)=>{
+     
+      const  cursor=districtsCollection.find();
+      const result=await cursor.toArray();
+      res.send(result);
+
+    })
+
+
+     // payment data
+    app.get('/upzilas',async(req,res)=>{
+     
+      const  cursor=upzilasCollection.find();
+      const result=await cursor.toArray();
+      res.send(result);
+
+    })
+
 
 
 

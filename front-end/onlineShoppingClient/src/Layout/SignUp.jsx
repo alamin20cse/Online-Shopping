@@ -23,7 +23,7 @@ const SignUp = () => {
 
     // Fetch districts on component mount
     useEffect(() => {
-        fetch("/public/districts.json")
+        fetch("https://online-shoppin-server.vercel.app/districts")
             .then((res) => res.json())
             .then((data) => setDistricts(data[2]?.data || []))
             .catch((error) => {
@@ -31,7 +31,7 @@ const SignUp = () => {
                 console.error("Error fetching districts:", error);
             });
     }, []);
-
+// done
     const handleDistrictChange = (e) => {
         const selectedDistrictID = e.target.value;
 
@@ -39,7 +39,7 @@ const SignUp = () => {
         setUpazilas([]);
 
         // Fetch upazilas and filter by district
-        fetch("/public/upazilas.json")
+        fetch("https://online-shoppin-server.vercel.app/upzilas")
             .then((res) => res.json())
             .then((data) => {
                 const filteredUpazilas = data[2]?.data.filter((upazila) => upazila.district_id === selectedDistrictID);
