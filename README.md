@@ -1,10 +1,5 @@
 # 🛍 Online Shopping Application
 
-A full-stack Online Shopping Web Application built using React (Frontend) and Node.js + Express + MongoDB (Backend). It supports product management, user registration/login, admin panel, secure payment via Stripe and SSLCommerz, and interactive UI animations using **Lottie.
-
----
-
-## 🌐 Live Site
 
 👉 [Client Live Site](https://online-shoping-software-lab.web.app/)  
 👉 [Backend Server Live Site](https://online-shoppin-server.vercel.app/)
