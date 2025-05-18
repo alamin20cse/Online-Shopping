@@ -201,6 +201,6 @@ export const auth = getAuth(app);
 
 1. [Md. Al-Amin Hossain](https://alamin20cse.surge.sh)  
 2. [Afreen Jahan](https://afrin20cse008.surge.sh/)  
-3. [Bondhon Das](#)
+3. [Bondhon Das](https://strangerbond.github.io/Bondhon-Portfolio/)
 
 ---
