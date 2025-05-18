@@ -174,6 +174,7 @@ export const auth = getAuth(app);
 
 ---
 
+
 ## 📸 Screenshots
 
 ### Login page
