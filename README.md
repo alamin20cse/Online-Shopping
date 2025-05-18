@@ -178,16 +178,27 @@ export const auth = getAuth(app);
 
 ---
 
+
 ## 📸 Screenshots
 
 ### Login page
 ![Login page](image.png)
 
-### All payment information
-![All payment information](home.png)
+### Home Page
+![Home Page](home.png)
 
-### Payment page
-![Payment page](admin.png)
+### Admin page
+![Admin page](admin.png)
+
+### All Payment Page
+![All Payment Page](allPayment.png)
+
+### Admin Dashboard
+![Admin Dashboard](admin.png)
+
+
+### Payment Page
+![Payment Page](payment.png)
 
 
 ## ✅ Testing
