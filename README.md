@@ -183,10 +183,10 @@ export const auth = getAuth(app);
 ### Login page
 ![Login page](image.png)
 
-### Home Page
+### All payment information
 ![All payment information](home.png)
 
-### Admin Dashboard
+### Payment page
 ![Payment page](admin.png)
 
 
