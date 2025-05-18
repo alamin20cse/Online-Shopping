@@ -180,10 +180,16 @@ export const auth = getAuth(app);
 ![Login page](image.png)
 
 ### Home Page
-![Home Page](home.png)
+![Home Page](home.PNG)
+
+### All Payment Page
+![Home Page](allPayment.png)
 
 ### Admin Dashboard
-![Admin Dashboard](admin.png)
+![Admin Dashboard](admin.PNG)
+
+### Payment Page
+![Home Page](payment.png)
 
 
 ## ✅ Testing
