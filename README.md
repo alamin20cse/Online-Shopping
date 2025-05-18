@@ -16,6 +16,7 @@
 - Tailwind CSS – Responsive styling
 - Axios – HTTP requests
 - React Toastify – Notifications
+- Dom -Client 
 
 ### Backend
 - Node.js + Express.js – REST API
