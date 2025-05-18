@@ -20,6 +20,7 @@ A full-stack Online Shopping Web Application built using React (Frontend) and No
 - Tailwind CSS – Responsive styling
 - Axios – HTTP requests
 - React Toastify – Notifications
+- Dom -Client 
 
 ### Backend
 - Node.js + Express.js – REST API
