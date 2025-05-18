@@ -184,13 +184,13 @@ export const auth = getAuth(app);
 ![Home Page](home.png)
 
 ### All Payment Page
-![Home Page](allPayment.png)
+![All Payment Page](allPayment.png)
 
 ### Admin Dashboard
 ![Admin Dashboard](admin.png)
 
 ### Payment Page
-![Home Page](payment.png)
+![Payment Page](payment.png)
 
 
 ## ✅ Testing
